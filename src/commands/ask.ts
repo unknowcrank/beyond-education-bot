@@ -21,6 +21,16 @@ export const command = {
     const commandInteraction =
       interaction as import("discord.js").CommandInteraction;
 
+    // Check if the member has the "premium" role
+    const member = await interaction.guild?.members.fetch(interaction.user.id);
+    if (!member?.roles.cache.has("1163582247463559209")) {
+      // 'premium' role ID
+      await commandInteraction.reply(
+        "Entschuldigung, nur Mitglieder mit der 'Premium' Rolle können diesen Befehl verwenden."
+      );
+      return;
+    }
+
     const questionOption = commandInteraction.options.get("question");
     if (!questionOption || typeof questionOption.value !== "string") {
       await commandInteraction.reply("Invalid question provided.");
