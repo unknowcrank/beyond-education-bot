@@ -8,7 +8,7 @@ export const command = {
   description: "Generiere ein verschiedene nützliche Dinge.",
   options: [
     {
-      name: "Auswahl",
+      name: "auswahl", // Corrected here
       type: 3,
       description: "Was möchtest du generieren lassen?.",
       required: true,
@@ -20,21 +20,113 @@ export const command = {
       ],
     },
     {
-      name: "Thema",
+      name: "thema", // Corrected here
       type: 3,
       description: "Das Thema der Stunde, z.B, 'zweiter Weltkrieg'",
       required: true,
     },
     {
-      name: "Fach",
+      name: "fach", // Corrected here
       type: 3,
       description: "Das Fach der Stunde, z.B, 'Geschichte'",
       required: true,
+      choices: [
+        {
+          name: "Geschichte",
+          value: "Geschichte",
+        },
+        {
+          name: "Deutsch",
+          value: "Deutsch",
+        },
+        {
+          name: "Englisch",
+          value: "Englisch",
+        },
+        {
+          name: "Mathe",
+          value: "Mathe",
+        },
+        {
+          name: "Physik",
+          value: "Physik",
+        },
+        {
+          name: "Chemie",
+          value: "Chemie",
+        },
+        {
+          name: "Biologie",
+          value: "Biologie",
+        },
+        {
+          name: "Informatik",
+          value: "Informatik",
+        },
+        {
+          name: "Musik",
+          value: "Musik",
+        },
+        {
+          name: "Kunst",
+          value: "Kunst",
+        },
+        {
+          name: "Sport",
+          value: "Sport",
+        },
+        {
+          name: "Religion",
+          value: "Religion",
+        },
+        {
+          name: "Ethik",
+          value: "Ethik",
+        },
+        {
+          name: "Politik",
+          value: "Politik",
+        },
+        {
+          name: "Wirtschaft",
+          value: "Wirtschaft",
+        },
+        {
+          name: "Geographie",
+          value: "Geographie",
+        },
+        {
+          name: "Philosophie",
+          value: "Philosophie",
+        },
+        {
+          name: "Psychologie",
+          value: "Psychologie",
+        },
+        {
+          name: "Sachunterricht",
+          value: "Sachunterricht",
+        },
+      ],
     },
     {
-      name: "Dauer",
+      name: "dauer", // Corrected here
       type: 3,
       description: "Die Dauer der Stunde, z.B, '90 minuten'",
+      choices: [
+        {
+          name: "45 minuten",
+          value: "45 minuten",
+        },
+        {
+          name: "60 minuten",
+          value: "60 minuten",
+        },
+        {
+          name: "90 minuten",
+          value: "90 minuten",
+        },
+      ],
       required: true,
     },
   ],
@@ -56,10 +148,10 @@ export const command = {
     }
 
     // Get options from the command
-    const selectionOption = commandInteraction.options.get("Auswahl");
-    const topicOption = commandInteraction.options.get("Thema");
-    const fachOption = commandInteraction.options.get("Fach");
-    const durationOption = commandInteraction.options.get("Dauer");
+    const selectionOption = commandInteraction.options.get("auswahl");
+    const topicOption = commandInteraction.options.get("thema");
+    const fachOption = commandInteraction.options.get("fach");
+    const durationOption = commandInteraction.options.get("dauer");
 
     // Validate options
     if (
@@ -72,6 +164,10 @@ export const command = {
       !durationOption ||
       typeof durationOption.value !== "string"
     ) {
+      console.log("Selection:", selectionOption?.value);
+      console.log("Thema:", topicOption?.value);
+      console.log("Fach:", fachOption?.value);
+      console.log("Dauer:", durationOption?.value);
       await commandInteraction.reply("Ungültige Eingabe.");
       return;
     }
