@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/bot.js",
+    "nodemon": "nodemon -e ts --exec \"tsc && node dist/bot.js\"",
     "dev": "tsc && node dist/bot.js"
   },
   "keywords": [],
@@ -13,13 +14,14 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "^20.8.3",
-    "discord.js": "^14.13.0",
+    "discord.js": "^14.12.1",
     "dotenv": "^16.3.1",
     "openai": "^4.11.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "@types/dotenv": "^8.2.0"
+    "@types/dotenv": "^8.2.0",
+    "nodemon": "^3.0.1"
   }
 }

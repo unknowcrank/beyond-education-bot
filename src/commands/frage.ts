@@ -4,13 +4,13 @@ import fetch from "node-fetch";
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 export const command = {
-  name: "ask",
-  description: "Ask the chatbot a question",
+  name: "frage",
+  description: "Frage den Chatbot etwas.",
   options: [
     {
-      name: "question",
+      name: "frage",
       type: 3, // Updated this from "STRING" to 3
-      description: "Your question for the chatbot",
+      description: "Deine Frage an den Chatbot",
       required: true,
     },
   ],
@@ -33,7 +33,7 @@ export const command = {
 
     const questionOption = commandInteraction.options.get("question");
     if (!questionOption || typeof questionOption.value !== "string") {
-      await commandInteraction.reply("Invalid question provided.");
+      await commandInteraction.reply("Ungültige Frage gestellt.");
       return;
     }
 
