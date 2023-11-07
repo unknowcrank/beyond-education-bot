@@ -13,7 +13,7 @@ export const command = {
 
   async execute(interaction: CommandInteraction) {
     const member = await interaction.guild?.members.fetch(interaction.user.id);
-    if (!member?.roles.cache.has("1163832228250386573")) {
+    if (!member?.roles.cache.has("1163493905153654927")) {
       await interaction.reply({
         content:
           "**❌ Error:** Nur Administrator von Beyond Education können dieses Slashcommand nutzen!",

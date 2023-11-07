@@ -41,6 +41,7 @@ export const command = {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            model: "dall-e-3",
             prompt: beschreibungOption.value,
             n: 1,
             size: "1024x1024",

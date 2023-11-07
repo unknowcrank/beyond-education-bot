@@ -110,7 +110,7 @@ client.on("interactionCreate", async (interaction: Interaction) => {
     const messageContent = interaction.fields.getTextInputValue("messageInput");
     try {
       const targetChannel = interaction.client.channels.cache.get(
-        "232819738609188874"
+        "1163808598007230554"
       ) as TextChannel | undefined;
       if (targetChannel) {
         await targetChannel.send(messageContent);
